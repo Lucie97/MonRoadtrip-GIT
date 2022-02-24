@@ -10,14 +10,16 @@ public class Logement {
     private int nbPlaces;
     private int note; //1-10
     private Hote hote;
+    private Integer id;
     
-	public Logement(LocalDate date, double prix, Adresse adresse, int nbPlaces, int note, Hote hote) {
+	public Logement(Integer id, LocalDate date, double prix, Adresse adresse, int nbPlaces, int note, Hote hote) {
 		this.date = date;
 		this.prix = prix;
 		this.adresse = adresse;
 		this.nbPlaces = nbPlaces;
 		this.note = note;
 		this.hote = hote;
+		this.id = id;
 	}
 
 	public LocalDate getDate() {
@@ -42,6 +44,15 @@ public class Logement {
 
 	public Hote getHote() {
 		return hote;
+	}
+	
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public void setDate(LocalDate date) {
@@ -70,9 +81,11 @@ public class Logement {
 
 	@Override
 	public String toString() {
-		return "Logement [date=" + date + ", prix=" + prix + ", adresse=" + adresse + ", nbPlaces=" + nbPlaces
-				+ ", note=" + note + ", hote=" + hote + "]";
+		return "Logement [id=" + id + ", date=" + date + ", prix=" + prix + ", adresse=" + adresse + ", nbPlaces="
+				+ nbPlaces + ", note=" + note + ", hote=" + hote + "]";
 	}
+
+	
 
 	
 	
