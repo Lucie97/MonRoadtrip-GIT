@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Reservation {
 
+	private Integer id;
 	private LocalDate dateReservation;
 	private Statut statut;
 	private Participant participant;
@@ -14,11 +15,12 @@ public class Reservation {
 
 
 	public Reservation(LocalDate dateReservation, Statut statut, Participant participant, List<Etape> etapes,
-			Roadtrip roadTrip) {
+			Roadtrip roadTrip, Client client) {
 		this.dateReservation = dateReservation;
 		this.statut = statut;
 		this.participant = participant;
 		this.roadTrip = roadTrip;
+		this.client = client;
 	}
 
 	public LocalDate getDateReservation() {
@@ -68,6 +70,12 @@ public class Reservation {
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+
+	@Override
+	public String toString() {
+		return "Reservation [dateReservation=" + dateReservation + ", statut=" + statut + ", participant=" + participant
+				+ ", etapes=" + etapes + ", client=" + client + "]";
 	}
 
 

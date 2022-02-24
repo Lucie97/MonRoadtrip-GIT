@@ -14,7 +14,7 @@ public class Etape {
 	public Etape(int duree, LocalDate date, List<Activite> activites, Logement logement, Reservation reservation) {
 		this.duree = duree;
 		this.date = date;
-		this.activites = activites; //obligatoire dans le constructeur ? 0 à * activite
+		this.activites = activites; //obligatoire dans le constructeur ? 0 ï¿½ * activite
 		this.logement = logement;
 		this.reservation = reservation;
 	}
@@ -62,7 +62,7 @@ public class Etape {
 	@Override
 	public String toString() {
 		return "Etape [duree=" + duree + ", date=" + date + ", activites=" + activites + ", logement=" + logement
-				+ ", reservation=" + reservation + "]";
+				+"]";
 	}
 	
 	
