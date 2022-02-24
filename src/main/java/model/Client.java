@@ -44,7 +44,7 @@ public class Client extends Compte {
 	@Override
 	public String toString() {
 		return "Client [nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", password=" + password + ", idCompte="
-				+ idCompte + ", dateNaissance=" + dateNaissance + ", reservations=" + reservations + ", solde=" + solde
+				+ idCompte + ", dateNaissance=" + dateNaissance +  ", solde=" + solde
 				+ ", typeDePaiement=" + typeDePaiement + "]";
 	}
 
