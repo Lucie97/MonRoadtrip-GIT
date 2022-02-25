@@ -16,6 +16,10 @@ public class Client extends Compte {
 		this.solde = solde;
 		this.typeDePaiement = typeDePaiement;
 	}
+	
+	public Client(String nom, String prenom, String mail, String password, LocalDate dateNaissance) {
+		super(nom, prenom, mail, password, dateNaissance);
+	}
 
 	public List<Reservation> getReservations() {
 		return reservations;

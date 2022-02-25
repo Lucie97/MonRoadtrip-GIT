@@ -1,8 +1,16 @@
 package dao;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.List;
 
+import model.Client;
 import model.Compte;
+import model.Hote;
+import model.Organisateur;
 
 public class DAOCompte implements IDAO<Compte, Integer> {
 
@@ -34,6 +42,37 @@ public class DAOCompte implements IDAO<Compte, Integer> {
 	public void delete(Integer id) {
 
 		
+	}
+	
+	public Compte seConnecter(String login, String password) {
+		Compte c = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection(urlBdd, loginBdd, passwordBdd);
+			PreparedStatement ps = conn.prepareStatement("SELECT * from compte where mail=? and password=?");
+			ps.setString(1, login);
+			ps.setString(2, password);
+
+			ResultSet rs = ps.executeQuery();
+
+			while (rs.next()) {
+				if (rs.getString("type_compte").equals("client")) {
+					c = new Client(rs.getString("nom"),rs.getString("prenom"), rs.getString("mail"), rs.getString("password"), LocalDate.parse(rs.getString("date_naissance")));
+				} else if (rs.getString("type_compte").equals("hote")) {
+					c = new Hote(rs.getString("nom"),rs.getString("prenom"), rs.getString("mail"), rs.getString("password"), LocalDate.parse(rs.getString("date_naissance")));
+				} else if (rs.getString("type_compte").equals("organisateur")) {
+					c = new Organisateur(rs.getString("nom"),rs.getString("prenom"), rs.getString("mail"), rs.getString("password"), LocalDate.parse(rs.getString("date_naissance")));
+				}
+			}
+
+			rs.close();
+			ps.close();
+			conn.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return c;
 	}
 
 }
