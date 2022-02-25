@@ -4,14 +4,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.Adresse;
+import model.Hote;
 import model.Logement;
 
 
 public class DAOLogement implements IDAO<Logement, Integer> {
 
+	DAOHote daoHote = new DAOHote();
+	
 	@Override
 	public Logement findById(Integer id) {
 
@@ -27,7 +32,10 @@ public class DAOLogement implements IDAO<Logement, Integer> {
 
 			while(rs.next()) 
 			{
-               //à compléter
+				Adresse a = (rs.getString("numero"), rs.getString("voie"), rs.getString("cp"), rs.getString("ville"));
+				Hote h = daoHote.findById(rs.getInt("id_hote_fk"));
+				
+				l = new Logement(id, LocalDate.parse(rs.getString("date")), rs.getDouble("prix"), a, rs.getInt("nb_places"), rs.getInt("note"), h);
 			}
 
 			rs.close();
