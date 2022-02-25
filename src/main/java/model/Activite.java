@@ -5,6 +5,7 @@ import java.time.LocalTime;
 
 public class Activite {
 
+	private Integer id;
     private LocalDate date;
     private LocalTime heure;
     private double prix;
@@ -17,7 +18,6 @@ public class Activite {
     
 	public Activite(LocalDate date, LocalTime heure, double prix, Adresse adresse, String categorie, int nbPlaces, int note,
 			Organisateur organisateur) {
-		super();
 		this.date = date;
 		this.heure = heure;
 		this.prix = prix;
@@ -28,6 +28,32 @@ public class Activite {
 		this.organisateur = organisateur;
 	}
 	
+	
+	public Activite(Integer id, LocalDate date, LocalTime heure, double prix, Adresse adresse, String categorie,
+			int nbPlaces, int note, Organisateur organisateur) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.heure = heure;
+		this.prix = prix;
+		this.adresse = adresse;
+		this.categorie = categorie;
+		this.nbPlaces = nbPlaces;
+		this.note = note;
+		this.organisateur = organisateur;
+	}
+
+
+
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public LocalDate getDate() {
 		return date;
 	}
@@ -79,7 +105,7 @@ public class Activite {
 
 	@Override
 	public String toString() {
-		return "Activite [date=" + date + ", heure=" + heure + ", prix=" + prix + ", adresse=" + adresse
+		return "Activite [id=" + id + ", date=" + date + ", heure=" + heure + ", prix=" + prix + ", adresse=" + adresse
 				+ ", categorie=" + categorie + ", nbPlaces=" + nbPlaces + ", note=" + note + ", organisateur="
 				+ organisateur + "]";
 	}
