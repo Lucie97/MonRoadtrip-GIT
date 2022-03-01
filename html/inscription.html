@@ -1,0 +1,64 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+</head>
+
+<style>
+
+
+  form
+  {
+    display:flex;
+    flex-direction:column;
+  }
+
+  body
+{
+  background-color:#F4EFE7;
+  display:flex;
+  align-items:center;
+  flex-direction:column;
+}
+</style>
+
+<h1>Inscription</h1>
+
+<form>
+  <div class="form-row">
+    <div class="form-group col-lg-12">
+      <label for="inputEmail">Email</label>
+      <input type="email" class="form-control" id="inputEmail">
+    </div>
+    <div class="form-group col-lg-12">
+      <label for="inputPassword">Mot de passe</label>
+      <input type="password" class="form-control" id="inputPassword">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-lg-4">
+      <label for="inputNumero">Numéro</label>
+      <input type="text" class="form-control" id="inputNumero">
+    </div>
+    <div class="form-group col-lg-8">
+      <label for="inputVoie">Voie</label>
+      <input type="text" class="form-control" id="inputVoie">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-lg-4">
+      <label for="inputCP">Code Postal</label>
+      <input type="text" class="form-control" id="inputCP">
+    </div>
+    <div class="form-group col-lg-8">
+      <label for="inputVille">Ville</label>
+      <input type="text" class="form-control" id="inputVille">
+    </div>
+
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">S'inscrire</button>
+</form>
