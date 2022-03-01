@@ -21,6 +21,15 @@ public class Logement {
 		this.hote = hote;
 		this.id = id;
 	}
+	
+	public Logement(LocalDate date, double prix, Adresse adresse, int nbPlaces, int note, Hote hote) {
+		this.date = date;
+		this.prix = prix;
+		this.adresse = adresse;
+		this.nbPlaces = nbPlaces;
+		this.note = note;
+		this.hote = hote;
+	}
 
 	public LocalDate getDate() {
 		return date;
@@ -78,6 +87,7 @@ public class Logement {
 	public void setHote(Hote hote) {
 		this.hote = hote;
 	}
+	
 
 	@Override
 	public String toString() {

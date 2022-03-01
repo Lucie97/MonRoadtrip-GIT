@@ -11,6 +11,17 @@ public class Roadtrip {
 	private Double prix;
 	private List<Reservation> reservations;
 	private Transport transport;
+	private Integer id;
+	
+	public Roadtrip(Integer id, String departLieu, String destination, LocalDate dateDepart, LocalDate dateArrivee, Double prix, Transport transport) {
+		this.departLieu = departLieu;
+		this.destination = destination;
+		this.dateDepart = dateDepart;
+		this.dateArrivee = dateArrivee;
+		this.prix = prix;
+		this.transport = transport;
+		this.id=id;
+	}
 	
 	public Roadtrip(String departLieu, String destination, LocalDate dateDepart, LocalDate dateArrivee, Double prix, Transport transport) {
 		this.departLieu = departLieu;
@@ -77,9 +88,18 @@ public class Roadtrip {
 		this.transport = transport;
 	}
 
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
-		return "Roadtrip [departLieu=" + departLieu + ", destination=" + destination + ", dateDepart=" + dateDepart
+		return "Roadtrip [id=" + id +", departLieu=" + departLieu + ", destination=" + destination + ", dateDepart=" + dateDepart
 				+ ", dateArrivee=" + dateArrivee + ", prix=" + prix + ", reservations=" + reservations + ", transport="
 				+ transport + "]";
 	}

@@ -6,6 +6,10 @@ import java.util.List;
 public class Organisateur extends Compte {
 	private List<Activite> activites;
 
+	public Organisateur(Integer id, String nom, String prenom, String mail, String password, LocalDate dateNaissance) {
+		super(id, nom, prenom, mail, password, dateNaissance);
+	}
+	
 	public Organisateur(String nom, String prenom, String mail, String password, LocalDate dateNaissance) {
 		super(nom, prenom, mail, password, dateNaissance);
 	}
@@ -21,7 +25,7 @@ public class Organisateur extends Compte {
 	@Override
 	public String toString() {
 		return "Organisateur [nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", password=" + password
-				+ ", idCompte=" + idCompte + ", dateNaissance=" + dateNaissance + ", activites=" + activites + "]";
+				+ ", id=" + id + ", dateNaissance=" + dateNaissance + ", activites=" + activites + "]";
 	}
 
 	

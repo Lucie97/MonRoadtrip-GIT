@@ -6,6 +6,10 @@ import java.util.List;
 public class Hote extends Compte {
 	private List<Logement> logements;
 
+	public Hote(Integer id, String nom, String prenom, String mail, String password, LocalDate dateNaissance) {
+		super(id, nom, prenom, mail, password, dateNaissance);
+	}
+	
 	public Hote(String nom, String prenom, String mail, String password, LocalDate dateNaissance) {
 		super(nom, prenom, mail, password, dateNaissance);
 	}
@@ -20,8 +24,8 @@ public class Hote extends Compte {
 
 	@Override
 	public String toString() {
-		return "Hote [nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", password=" + password + ", idCompte="
-				+ idCompte + ", dateNaissance=" + dateNaissance + ", logements=" + logements + "]";
+		return "Hote [nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", password=" + password + ", id=" + id
+				+ ", dateNaissance=" + dateNaissance + ", logements=" + logements + "]";
 	}
 
 	
