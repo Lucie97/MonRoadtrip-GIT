@@ -13,7 +13,16 @@ public class Reservation {
 	private Roadtrip roadTrip;
 	private Client client;
 
-
+	public Reservation(Integer id, LocalDate dateReservation, Statut statut, Participant participant, List<Etape> etapes,
+			Roadtrip roadTrip, Client client) {
+		this.dateReservation = dateReservation;
+		this.statut = statut;
+		this.participant = participant;
+		this.roadTrip = roadTrip;
+		this.client = client;
+		this.id=id;
+	}
+	
 	public Reservation(LocalDate dateReservation, Statut statut, Participant participant, List<Etape> etapes,
 			Roadtrip roadTrip, Client client) {
 		this.dateReservation = dateReservation;
@@ -72,9 +81,17 @@ public class Reservation {
 		this.client = client;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
-		return "Reservation [dateReservation=" + dateReservation + ", statut=" + statut + ", participant=" + participant
+		return "Reservation [id=" + id + ", dateReservation=" + dateReservation + ", statut=" + statut + ", participant=" + participant
 				+ ", etapes=" + etapes + ", client=" + client + "]";
 	}
 

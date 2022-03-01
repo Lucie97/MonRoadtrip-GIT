@@ -10,6 +10,16 @@ public class Etape {
 	private List<Activite> activites;
 	private Logement logement;
 	private Reservation reservation;
+	private Integer id;
+	
+	public Etape(Integer id, int duree, LocalDate date, List<Activite> activites, Logement logement, Reservation reservation) {
+		this.id=id;
+		this.duree = duree;
+		this.date = date;
+		this.activites = activites; //obligatoire dans le constructeur ? 0 � * activite
+		this.logement = logement;
+		this.reservation = reservation;
+	}
 	
 	public Etape(int duree, LocalDate date, List<Activite> activites, Logement logement, Reservation reservation) {
 		this.duree = duree;
@@ -59,10 +69,18 @@ public class Etape {
 		this.reservation = reservation;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
-		return "Etape [duree=" + duree + ", date=" + date + ", activites=" + activites + ", logement=" + logement
-				+"]";
+		return "Etape [id=" + id + ", duree=" + duree + ", date=" + date + ", activites=" + activites + ", logement="
+				+ logement + "]";
 	}
 	
 	

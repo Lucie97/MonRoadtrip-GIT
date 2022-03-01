@@ -17,8 +17,20 @@ public class Client extends Compte {
 		this.typeDePaiement = typeDePaiement;
 	}
 	
+	public Client(Integer id, String nom, String prenom, String mail, String password, LocalDate dateNaissance, List<Reservation> reservations, double solde,
+			TypeDePaiement typeDePaiement) {
+		super(id, nom, prenom, mail, password, dateNaissance);
+		this.reservations = reservations;
+		this.solde = solde;
+		this.typeDePaiement = typeDePaiement;
+	}
+	
 	public Client(String nom, String prenom, String mail, String password, LocalDate dateNaissance) {
 		super(nom, prenom, mail, password, dateNaissance);
+	}
+	
+	public Client(Integer id, String nom, String prenom, String mail, String password, LocalDate dateNaissance) {
+		super(id, nom, prenom, mail, password, dateNaissance);
 	}
 
 	public List<Reservation> getReservations() {
@@ -47,8 +59,8 @@ public class Client extends Compte {
 
 	@Override
 	public String toString() {
-		return "Client [nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", password=" + password + ", idCompte="
-				+ idCompte + ", dateNaissance=" + dateNaissance +  ", solde=" + solde
+		return "Client [nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", password=" + password + ", id=" + id
+				+ ", dateNaissance=" + dateNaissance + ", solde=" + solde
 				+ ", typeDePaiement=" + typeDePaiement + "]";
 	}
 
