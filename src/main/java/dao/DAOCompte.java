@@ -68,7 +68,57 @@ public class DAOCompte implements IDAO<Compte, Integer> {
 	@Override
 	public Compte insert(Compte c) {
 
-		return null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conn = DriverManager.getConnection(urlBdd, loginBdd, passwordBdd);
+
+			if (c instanceof Hote) {
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO compte (mail, password, nom, prenom, date_naissance, type_compte) VALUES (?,?,?,?,?,?)");
+				ps.setString(1, c.getMail());
+				ps.setString(2, c.getPassword());
+				ps.setString(3, c.getNom());
+				ps.setString(4, c.getPrenom());
+				ps.setString(5, c.getDateNaissance().toString());
+				ps.setString(6, "Hote");
+
+				ps.executeUpdate();
+
+				ps.close();
+				
+			} else if (c instanceof Organisateur) {				
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO compte (mail, password, nom, prenom, date_naissance, type_compte) VALUES (?,?,?,?,?,?)");
+				ps.setString(1, c.getMail());
+				ps.setString(2, c.getPassword());
+				ps.setString(3, c.getNom());
+				ps.setString(4, c.getPrenom());
+				ps.setString(5, c.getDateNaissance().toString());
+				ps.setString(6, "Organisateur");
+
+				ps.executeUpdate();
+
+				ps.close();
+				
+			} else if (c instanceof Client) {				
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO compte (mail, password, nom, prenom, date_naissance, type_compte) VALUES (?,?,?,?,?,?)");
+				ps.setString(1, c.getMail());
+				ps.setString(2, c.getPassword());
+				ps.setString(3, c.getNom());
+				ps.setString(4, c.getPrenom());
+				ps.setString(5, c.getDateNaissance().toString());
+				ps.setString(6, "Client");
+
+				ps.executeUpdate();
+
+				ps.close();
+			}
+			
+			conn.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return c;
 	}
 
 	@Override
