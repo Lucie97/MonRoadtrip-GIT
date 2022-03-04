@@ -41,3 +41,16 @@ background-size: cover;
   padding:25px;
   border-radius:20px;
 }
+
+/*-----Page connexion-----*/
+
+#bodyConnexion {
+background-color: #F4EFE7;
+}
+
+#connexion {
+  margin:10%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
