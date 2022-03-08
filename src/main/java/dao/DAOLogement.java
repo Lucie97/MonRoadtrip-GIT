@@ -15,7 +15,7 @@ import model.Logement;
 
 public class DAOLogement implements IDAO<Logement, Integer> {
 
-	DAOHote daoHote = new DAOHote();
+	DAOCompte daoCompte = new DAOCompte();
 	
 	@Override
 	public Logement findById(Integer id) {
@@ -32,8 +32,8 @@ public class DAOLogement implements IDAO<Logement, Integer> {
 
 			while(rs.next()) 
 			{
-				Adresse a = (rs.getString("numero"), rs.getString("voie"), rs.getString("cp"), rs.getString("ville"));
-				Hote h = daoHote.findById(rs.getInt("id_hote_fk"));
+				Adresse a = new Adresse(rs.getString("numero"), rs.getString("voie"), rs.getString("cp"), rs.getString("ville"));
+				Hote h = (Hote)daoCompte.findById(rs.getInt("id_hote_fk"));
 				
 				l = new Logement(id, LocalDate.parse(rs.getString("date")), rs.getDouble("prix"), a, rs.getInt("nb_places"), rs.getInt("note"), h);
 			}
@@ -54,7 +54,7 @@ public class DAOLogement implements IDAO<Logement, Integer> {
 
 		List<Logement> logements = new ArrayList();
 		
-		//à compléter
+		//ï¿½ complï¿½ter
 		
 		return logements;
 	}

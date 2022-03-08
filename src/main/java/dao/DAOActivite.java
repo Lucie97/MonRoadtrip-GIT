@@ -26,10 +26,10 @@ public class DAOActivite implements IDAO<Activite, Integer> {
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) 
 			{
-				Adresse adresse = new Adresse(rs.getString("numero"),rs.getString("voie"),rs.getString("cp"));
+				Adresse adresse = new Adresse(rs.getString("numero"),rs.getString("voie"),rs.getString("cp"),rs.getString("ville"));
 				//definir une Adresse
 				//definir un Organisateur
-				a = new Activite(id,LocalDate.parse(rs.getString("date")),LocalTime.parse(rs.getString("heure")),rs.getDouble("prix"),);
+				a = new Activite(id,LocalDate.parse(rs.getString("date")),LocalTime.parse(rs.getString("heure")),rs.getDouble("prix"), adresse, "Musee", 3, 1, null);
 
 
 			}
