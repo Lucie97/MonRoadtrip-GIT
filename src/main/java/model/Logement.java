@@ -2,16 +2,39 @@ package model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Logement {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_logement")
+	private Integer id;
 	private LocalDate date;
-    private double prix;
-    private Adresse adresse;
-    private int nbPlaces;
-    private int note; //1-10
-    private Hote hote;
-    private Integer id;
-    
+	private double prix;
+	@Embedded
+	private Adresse adresse;
+	@Column(name = "nb_places")
+	private int nbPlaces;
+	private int note; //1-10
+	
+	@ManyToOne
+	@JoinColumn(name="id_hote_fk")
+	private Hote hote;
+	
+	// étape ?
+
+	public Logement() {
+	}    
+
 	public Logement(Integer id, LocalDate date, double prix, Adresse adresse, int nbPlaces, int note, Hote hote) {
 		this.date = date;
 		this.prix = prix;
@@ -21,7 +44,7 @@ public class Logement {
 		this.hote = hote;
 		this.id = id;
 	}
-	
+
 	public Logement(LocalDate date, double prix, Adresse adresse, int nbPlaces, int note, Hote hote) {
 		this.date = date;
 		this.prix = prix;
@@ -54,8 +77,8 @@ public class Logement {
 	public Hote getHote() {
 		return hote;
 	}
-	
-	
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -87,7 +110,7 @@ public class Logement {
 	public void setHote(Hote hote) {
 		this.hote = hote;
 	}
-	
+
 
 	@Override
 	public String toString() {
@@ -95,10 +118,10 @@ public class Logement {
 				+ nbPlaces + ", note=" + note + ", hote=" + hote + "]";
 	}
 
-	
 
-	
-	
-	
-	
+
+
+
+
+
 }
