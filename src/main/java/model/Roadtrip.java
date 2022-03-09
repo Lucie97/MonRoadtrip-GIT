@@ -26,6 +26,7 @@ public class Roadtrip {
 	private List<Reservation> reservations;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "ENUM('Voiture','Moto','Bus','Train','Avion')")
 	private Transport transport;
 	
 	@Id
