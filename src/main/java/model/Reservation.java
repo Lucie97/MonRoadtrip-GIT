@@ -29,7 +29,7 @@ public class Reservation {
 	@Enumerated(EnumType.STRING)
 	private Statut statut;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="id_participant_fk")
 	private Participant participant;
 	
@@ -40,7 +40,7 @@ public class Reservation {
 	@JoinColumn(name="id_roadtrip_fk")
 	private Roadtrip roadTrip;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="id_client_fk")
 	private Client client;
 
