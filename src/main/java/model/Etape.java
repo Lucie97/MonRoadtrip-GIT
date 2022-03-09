@@ -3,14 +3,37 @@ package model;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Etape {
 
 	private int duree;
 	private LocalDate date;
+	
+	@OneToMany
 	private List<Activite> activites;
+	
+	@ManyToOne
 	private Logement logement;
+	
+	@ManyToOne
+	@JoinColumn(name="id_reservation_fk")
 	private Reservation reservation;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_etape")
 	private Integer id;
+	
+	public Etape() {}
 	
 	public Etape(Integer id, int duree, LocalDate date, List<Activite> activites, Logement logement, Reservation reservation) {
 		this.id=id;

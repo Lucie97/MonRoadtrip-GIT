@@ -3,16 +3,49 @@ package model;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
 public class Reservation {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_reservation")
 	private Integer id;
+	
 	private LocalDate dateReservation;
+	
+	@Enumerated(EnumType.STRING)
 	private Statut statut;
+	
+	@OneToOne
+	@JoinColumn(name="id_participant_fk")
 	private Participant participant;
+	
+	@OneToMany(mappedBy = "reservation")
 	private List<Etape> etapes;
+	
+	@ManyToOne
+	@JoinColumn(name="id_roadtrip_fk")
 	private Roadtrip roadTrip;
+	
+	@OneToOne
+	@JoinColumn(name="id_client_fk")
 	private Client client;
 
+	public Reservation() {}
+	
 	public Reservation(Integer id, LocalDate dateReservation, Statut statut, Participant participant, List<Etape> etapes,
 			Roadtrip roadTrip, Client client) {
 		this.dateReservation = dateReservation;
