@@ -3,12 +3,28 @@ package model;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
+@Entity
+@PrimaryKeyJoinColumn(name="id_compte_fk")
 public class Client extends Compte {
-
-	private List<Reservation> reservations;
+	
     private double solde;
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "ENUM('Carte','Paypal')")
     private TypeDePaiement typeDePaiement;
+	
+	@OneToMany (mappedBy = "client")
+	private List<Reservation> reservations;
     
+	public Client() {
+		
+	}
+	
 	public Client(String nom, String prenom, String mail, String password, LocalDate dateNaissance, List<Reservation> reservations, double solde,
 			TypeDePaiement typeDePaiement) {
 		super(nom, prenom, mail, password, dateNaissance);
