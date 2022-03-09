@@ -3,19 +3,41 @@ package model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Activite {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_activite")
 	private Integer id;
-    private LocalDate date;
-    private LocalTime heure;
-    private double prix;
-    private Adresse adresse;
-    private String categorie;
-    private int nbPlaces;
-    private int note; //1-10
-    private Organisateur organisateur;
-    
-    
+	private LocalDate date;
+	private LocalTime heure;
+	private double prix;
+	@Embedded
+	private Adresse adresse;
+	private String categorie;
+	@Column(name = "nb_places")
+	private int nbPlaces;
+	private int note; //1-10
+
+	@ManyToOne
+	@JoinColumn(name="id_organisateur_fk")
+	private Organisateur organisateur;
+
+	// étape ?
+
+	public Activite() {
+	}
+
 	public Activite(LocalDate date, LocalTime heure, double prix, Adresse adresse, String categorie, int nbPlaces, int note,
 			Organisateur organisateur) {
 		this.date = date;
@@ -27,8 +49,8 @@ public class Activite {
 		this.note = note;
 		this.organisateur = organisateur;
 	}
-	
-	
+
+
 	public Activite(Integer id, LocalDate date, LocalTime heure, double prix, Adresse adresse, String categorie,
 			int nbPlaces, int note, Organisateur organisateur) {
 		super();
@@ -110,6 +132,6 @@ public class Activite {
 				+ organisateur + "]";
 	}
 
-	
-    
+
+
 }
