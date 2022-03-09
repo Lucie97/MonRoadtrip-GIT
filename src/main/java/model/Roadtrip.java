@@ -3,15 +3,39 @@ package model;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Roadtrip {
+	
 	private String departLieu;
 	private String destination;
 	private LocalDate dateDepart;
 	private LocalDate dateArrivee;
 	private Double prix;
+	
+	@OneToMany(mappedBy = "roadTrip")
 	private List<Reservation> reservations;
+	
+	@Enumerated(EnumType.STRING)
 	private Transport transport;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_roadtrip")
 	private Integer id;
+	
+	
+	public Roadtrip() {}
+	
 	
 	public Roadtrip(Integer id, String departLieu, String destination, LocalDate dateDepart, LocalDate dateArrivee, Double prix, Transport transport) {
 		this.departLieu = departLieu;
