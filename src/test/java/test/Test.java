@@ -11,7 +11,7 @@ public class Test {
 
 
 
-		/*
+		
 		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("monroadtripUnit");
 
 		EntityManager em  = emf.createEntityManager();
@@ -20,7 +20,7 @@ public class Test {
 
 		em.close();
 		emf.close();
-		*/
+		
 
 	}
 

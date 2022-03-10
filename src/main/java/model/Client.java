@@ -3,11 +3,18 @@ package model;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Client extends Compte {
 
-	private List<Reservation> reservations;
     private double solde;
     private TypeDePaiement typeDePaiement;
+    
+    @OneToMany
+	private List<Reservation> reservations;
+
     
 	public Client(String nom, String prenom, String mail, String password, LocalDate dateNaissance, List<Reservation> reservations, double solde,
 			TypeDePaiement typeDePaiement) {
