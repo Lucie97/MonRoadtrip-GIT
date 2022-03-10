@@ -2,15 +2,31 @@ package model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.SequenceGenerator;
+
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@SequenceGenerator(name = "seqCompteJPA",sequenceName = "seqCompte")
 public abstract class Compte {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seqCompteJPA")
+    protected Integer id;
 
     protected String nom;
     protected String prenom;
 	protected String mail;
     protected String password;
-    protected Integer id;
     protected LocalDate dateNaissance;
     
+    public Compte() {
+	}
     
 	public Compte(Integer id,String nom, String prenom, String mail, String password, LocalDate dateNaissance) {
 		this.nom = nom;

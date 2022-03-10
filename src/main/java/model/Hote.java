@@ -3,8 +3,17 @@ package model;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Hote extends Compte {
+	
+	@OneToMany
 	private List<Logement> logements;
+	
+	public Hote() {
+	}
 
 	public Hote(Integer id, String nom, String prenom, String mail, String password, LocalDate dateNaissance) {
 		super(id, nom, prenom, mail, password, dateNaissance);
