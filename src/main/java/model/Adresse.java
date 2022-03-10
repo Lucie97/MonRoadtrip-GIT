@@ -8,16 +8,16 @@ public class Adresse {
 	protected String numero;
 	protected String voie;
 	protected String cp;
-	//protected String ville;
+	protected String ville;
 	
 	public Adresse() {
 	}
 	
-	public Adresse(String numero, String voie, String cp) {
-		super();
+	public Adresse(String numero, String voie, String cp, String ville) {
 		this.numero = numero;
 		this.voie = voie;
 		this.cp = cp;
+		this.ville = ville;
 	}
 
 
@@ -40,9 +40,17 @@ public class Adresse {
 		this.cp = cp;
 	}
 
+	public String getVille() {
+		return ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
 	@Override
 	public String toString() {
-		return "Adresse [numero=" + numero + ", voie=" + voie + ", cp=" + cp + "]";
+		return "Adresse [numero=" + numero + ", voie=" + voie + ", cp=" + cp + ", ville=" + ville + "]";
 	}
 	
 	

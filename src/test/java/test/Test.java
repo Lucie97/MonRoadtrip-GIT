@@ -9,14 +9,10 @@ public class Test {
 	public static void main(String[] args) {
 
 
-
-
-		
 		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("monroadtripUnit");
 
 		EntityManager em  = emf.createEntityManager();
 
-		em.getTransaction().begin();
 
 		em.close();
 		emf.close();

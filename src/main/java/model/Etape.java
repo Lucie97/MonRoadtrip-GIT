@@ -17,6 +17,7 @@ public class Etape {
 
 	private int duree;
 	private LocalDate date;
+	private String ville;
 	
 	@OneToMany
 	private List<Activite> activites;
@@ -35,21 +36,23 @@ public class Etape {
 	
 	public Etape() {}
 	
-	public Etape(Integer id, int duree, LocalDate date, List<Activite> activites, Logement logement, Reservation reservation) {
+	public Etape(Integer id, int duree, LocalDate date, List<Activite> activites, Logement logement, Reservation reservation, String ville) {
 		this.id=id;
 		this.duree = duree;
 		this.date = date;
 		this.activites = activites; //obligatoire dans le constructeur ? 0 � * activite
 		this.logement = logement;
 		this.reservation = reservation;
+		this.ville=ville;
 	}
 	
-	public Etape(int duree, LocalDate date, List<Activite> activites, Logement logement, Reservation reservation) {
+	public Etape(int duree, LocalDate date, List<Activite> activites, Logement logement, Reservation reservation, String ville) {
 		this.duree = duree;
 		this.date = date;
 		this.activites = activites; //obligatoire dans le constructeur ? 0 � * activite
 		this.logement = logement;
 		this.reservation = reservation;
+		this.ville=ville;
 	}
 
 	public int getDuree() {
@@ -100,10 +103,18 @@ public class Etape {
 		this.id = id;
 	}
 
+	public String getVille() {
+		return ville;
+	}
+
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+
 	@Override
 	public String toString() {
 		return "Etape [id=" + id + ", duree=" + duree + ", date=" + date + ", activites=" + activites + ", logement="
-				+ logement + "]";
+				+ logement + ", ville=" + ville+ "]";
 	}
 	
 	
